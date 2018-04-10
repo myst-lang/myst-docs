@@ -1,0 +1,1907 @@
+{
+  "kind": "MODULE",
+  "name": "Root",
+  "full_name": "Root",
+  "doc": null,
+  "constants": {},
+  "methods": {
+    "assert": {
+      "kind": "METHOD",
+      "name": "assert",
+      "full_name": "Root.assert",
+      "clauses": [
+        {
+          "head": "def assert(value)",
+          "arity": 1,
+          "parameters": [
+            "value"
+          ],
+          "splat_index": null,
+          "block_parameter": null,
+          "doc": "The global entrypoint to writing assertions. `assert` accepts any value or block as an argument, and returns the appropriate assertion object to write assertions with."
+        },
+        {
+          "head": "def assert(&block)",
+          "arity": 0,
+          "parameters": [],
+          "splat_index": null,
+          "block_parameter": "block",
+          "doc": null
+        }
+      ],
+      "doc": null
+    }
+  },
+  "submodules": {
+    "Assert": {
+      "kind": "MODULE",
+      "name": "Assert",
+      "full_name": "Root.Assert",
+      "doc": null,
+      "constants": {},
+      "methods": {},
+      "submodules": {},
+      "subtypes": {
+        "AssertionFailure": {
+          "kind": "TYPE",
+          "name": "AssertionFailure",
+          "full_name": "Root.Assert.AssertionFailure",
+          "doc": "An AssertionFailure is a container object that is raised when an assertion fails to complete.",
+          "constants": {},
+          "instance_methods": {
+            "left": {
+              "kind": "METHOD",
+              "name": "left",
+              "full_name": "Root.Assert.AssertionFailure.left",
+              "clauses": [
+                {
+                  "head": "def left",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            },
+            "right": {
+              "kind": "METHOD",
+              "name": "right",
+              "full_name": "Root.Assert.AssertionFailure.right",
+              "clauses": [
+                {
+                  "head": "def right",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            },
+            "to_s": {
+              "kind": "METHOD",
+              "name": "to_s",
+              "full_name": "Root.Assert.AssertionFailure.to_s",
+              "clauses": [
+                {
+                  "head": "def to_s",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            }
+          },
+          "static_methods": {},
+          "initializers": {
+            "initialize": {
+              "kind": "METHOD",
+              "name": "initialize",
+              "full_name": "Root.Assert.AssertionFailure.initialize",
+              "clauses": [
+                {
+                  "head": "def initialize(@left, @right, @message : String)",
+                  "arity": 3,
+                  "parameters": [
+                    "@left",
+                    "@right",
+                    "@message : String"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                },
+                {
+                  "head": "def initialize(@left, @right)",
+                  "arity": 2,
+                  "parameters": [
+                    "@left",
+                    "@right"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            }
+          },
+          "submodules": {},
+          "subtypes": {}
+        },
+        "Assertion": {
+          "kind": "TYPE",
+          "name": "Assertion",
+          "full_name": "Root.Assert.Assertion",
+          "doc": "An object representing a pending assertion for a static value. Instantiating an `Assertion` object only stores the \"left-hand\" value. Making actual assertions is done with the instance methods on the object. For example, equality can be asserted with `%Assertion{true}.equals(true)`.\nWhen an assertion succeeds, the method will return normally, but if the assertion fails, the method will raise an `AssertionFailure` object with information about the failure.",
+          "constants": {},
+          "instance_methods": {
+            "is_truthy": {
+              "kind": "METHOD",
+              "name": "is_truthy",
+              "full_name": "Root.Assert.Assertion.is_truthy",
+              "clauses": [
+                {
+                  "head": "def is_truthy",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Asserts that the value is truthy (not `false` or `nil`)."
+                }
+              ],
+              "doc": null
+            },
+            "is_falsey": {
+              "kind": "METHOD",
+              "name": "is_falsey",
+              "full_name": "Root.Assert.Assertion.is_falsey",
+              "clauses": [
+                {
+                  "head": "def is_falsey",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Asserts that the value is falsey (either `false` or `nil`)."
+                }
+              ],
+              "doc": null
+            },
+            "is_true": {
+              "kind": "METHOD",
+              "name": "is_true",
+              "full_name": "Root.Assert.Assertion.is_true",
+              "clauses": [
+                {
+                  "head": "def is_true",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Asserts that the value is exactly the boolean value `true`."
+                }
+              ],
+              "doc": null
+            },
+            "is_false": {
+              "kind": "METHOD",
+              "name": "is_false",
+              "full_name": "Root.Assert.Assertion.is_false",
+              "clauses": [
+                {
+                  "head": "def is_false",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Asserts that the value is exactly the boolean value `false`."
+                }
+              ],
+              "doc": null
+            },
+            "is_nil": {
+              "kind": "METHOD",
+              "name": "is_nil",
+              "full_name": "Root.Assert.Assertion.is_nil",
+              "clauses": [
+                {
+                  "head": "def is_nil",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Asserts that the value is `nil` (false is not allowed)."
+                }
+              ],
+              "doc": null
+            },
+            "is_not_nil": {
+              "kind": "METHOD",
+              "name": "is_not_nil",
+              "full_name": "Root.Assert.Assertion.is_not_nil",
+              "clauses": [
+                {
+                  "head": "def is_not_nil",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Asserts that the value is not `nil` (false is allowed)."
+                }
+              ],
+              "doc": null
+            },
+            "equals": {
+              "kind": "METHOD",
+              "name": "equals",
+              "full_name": "Root.Assert.Assertion.equals",
+              "clauses": [
+                {
+                  "head": "def equals(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that the value is equal to `other` using its `==` method."
+                }
+              ],
+              "doc": null
+            },
+            "does_not_equal": {
+              "kind": "METHOD",
+              "name": "does_not_equal",
+              "full_name": "Root.Assert.Assertion.does_not_equal",
+              "clauses": [
+                {
+                  "head": "def does_not_equal(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that the value is not equal to `other` using its `!=` method."
+                }
+              ],
+              "doc": null
+            },
+            "less_than": {
+              "kind": "METHOD",
+              "name": "less_than",
+              "full_name": "Root.Assert.Assertion.less_than",
+              "clauses": [
+                {
+                  "head": "def less_than(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that the value is less than `other` using its `<` method."
+                }
+              ],
+              "doc": null
+            },
+            "less_or_equal": {
+              "kind": "METHOD",
+              "name": "less_or_equal",
+              "full_name": "Root.Assert.Assertion.less_or_equal",
+              "clauses": [
+                {
+                  "head": "def less_or_equal(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that the value is less than or equal to `other` using its `<=` method."
+                }
+              ],
+              "doc": null
+            },
+            "greater_or_equal": {
+              "kind": "METHOD",
+              "name": "greater_or_equal",
+              "full_name": "Root.Assert.Assertion.greater_or_equal",
+              "clauses": [
+                {
+                  "head": "def greater_or_equal(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that the value is greater than or equal to `other` using its `>=` method."
+                }
+              ],
+              "doc": null
+            },
+            "greater_than": {
+              "kind": "METHOD",
+              "name": "greater_than",
+              "full_name": "Root.Assert.Assertion.greater_than",
+              "clauses": [
+                {
+                  "head": "def greater_than(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that the value is greater than `other` using its `>` method."
+                }
+              ],
+              "doc": null
+            },
+            "between": {
+              "kind": "METHOD",
+              "name": "between",
+              "full_name": "Root.Assert.Assertion.between",
+              "clauses": [
+                {
+                  "head": "def between(lower, upper)",
+                  "arity": 2,
+                  "parameters": [
+                    "lower",
+                    "upper"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that the value is between `lower` and `upper` (inclusively), using only the `<=`operator on the value for comparisons."
+                }
+              ],
+              "doc": null
+            },
+            "<": {
+              "kind": "METHOD",
+              "name": "<",
+              "full_name": "Root.Assert.Assertion.<",
+              "clauses": [
+                {
+                  "head": "def <(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Operator alias for `less_than(other)`."
+                }
+              ],
+              "doc": null
+            },
+            "<=": {
+              "kind": "METHOD",
+              "name": "<=",
+              "full_name": "Root.Assert.Assertion.<=",
+              "clauses": [
+                {
+                  "head": "def <=(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Operator alias for `less_or_equal(other)`."
+                }
+              ],
+              "doc": null
+            },
+            "==": {
+              "kind": "METHOD",
+              "name": "==",
+              "full_name": "Root.Assert.Assertion.==",
+              "clauses": [
+                {
+                  "head": "def ==(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Operator alias for `equals(other)`."
+                }
+              ],
+              "doc": null
+            },
+            "!=": {
+              "kind": "METHOD",
+              "name": "!=",
+              "full_name": "Root.Assert.Assertion.!=",
+              "clauses": [
+                {
+                  "head": "def !=(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Operator alias for `does_not_equal(other)`."
+                }
+              ],
+              "doc": null
+            },
+            ">=": {
+              "kind": "METHOD",
+              "name": ">=",
+              "full_name": "Root.Assert.Assertion.>=",
+              "clauses": [
+                {
+                  "head": "def >=(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Operator alias for `greater_or_equal(other)`."
+                }
+              ],
+              "doc": null
+            },
+            ">": {
+              "kind": "METHOD",
+              "name": ">",
+              "full_name": "Root.Assert.Assertion.>",
+              "clauses": [
+                {
+                  "head": "def >(other)",
+                  "arity": 1,
+                  "parameters": [
+                    "other"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Operator alias for `greater_than(other)`."
+                }
+              ],
+              "doc": null
+            },
+            "is_a": {
+              "kind": "METHOD",
+              "name": "is_a",
+              "full_name": "Root.Assert.Assertion.is_a",
+              "clauses": [
+                {
+                  "head": "def is_a(other : Type)",
+                  "arity": 1,
+                  "parameters": [
+                    "other : Type"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that the value is an instance of `type`."
+                }
+              ],
+              "doc": null
+            },
+            "includes": {
+              "kind": "METHOD",
+              "name": "includes",
+              "full_name": "Root.Assert.Assertion.includes",
+              "clauses": [
+                {
+                  "head": "def includes(element)",
+                  "arity": 1,
+                  "parameters": [
+                    "element"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that the value includes `element`. This requires that the value is Enumerable (implements `#each`)"
+                }
+              ],
+              "doc": null
+            }
+          },
+          "static_methods": {},
+          "initializers": {
+            "initialize": {
+              "kind": "METHOD",
+              "name": "initialize",
+              "full_name": "Root.Assert.Assertion.initialize",
+              "clauses": [
+                {
+                  "head": "def initialize(@value)",
+                  "arity": 1,
+                  "parameters": [
+                    "@value"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            }
+          },
+          "submodules": {},
+          "subtypes": {}
+        },
+        "BlockAssertion": {
+          "kind": "TYPE",
+          "name": "BlockAssertion",
+          "full_name": "Root.Assert.BlockAssertion",
+          "doc": "An object representing a pending assertion for a block of code. Similar to the regular `Assertion`, instantiating a `BlockAssertion` only stores the block of code to be run when making the assertion. Making the actual assertion is done by calling methods on the resulting object.\n`BlockAssertion` is most useful for asserting that running a code block has a specific side effect, namely raising errors.",
+          "constants": {},
+          "instance_methods": {
+            "raises": {
+              "kind": "METHOD",
+              "name": "raises",
+              "full_name": "Root.Assert.BlockAssertion.raises",
+              "clauses": [
+                {
+                  "head": "def raises(expected_error)",
+                  "arity": 1,
+                  "parameters": [
+                    "expected_error"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that calling the block raises an error with the given value. If no value is given, the assertion just checks that an error is raised.\nThe block will be called with whatever arguments have been set with `called_with_arguments`. By default, no arguments will be given."
+                },
+                {
+                  "head": "def raises",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            },
+            "succeeds": {
+              "kind": "METHOD",
+              "name": "succeeds",
+              "full_name": "Root.Assert.BlockAssertion.succeeds",
+              "clauses": [
+                {
+                  "head": "def succeeds",
+                  "arity": 0,
+                  "parameters": [],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that calling the block completes successfully (does not raise an error)."
+                }
+              ],
+              "doc": null
+            },
+            "returns": {
+              "kind": "METHOD",
+              "name": "returns",
+              "full_name": "Root.Assert.BlockAssertion.returns",
+              "clauses": [
+                {
+                  "head": "def returns(expected_result)",
+                  "arity": 1,
+                  "parameters": [
+                    "expected_result"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": "Assert that calling the block returns the given value."
+                }
+              ],
+              "doc": null
+            },
+            "called_with_arguments": {
+              "kind": "METHOD",
+              "name": "called_with_arguments",
+              "full_name": "Root.Assert.BlockAssertion.called_with_arguments",
+              "clauses": [
+                {
+                  "head": "def called_with_arguments(*args)",
+                  "arity": 1,
+                  "parameters": [
+                    "*args"
+                  ],
+                  "splat_index": 0,
+                  "block_parameter": null,
+                  "doc": "Set the arguments to be used when calling the block for an assertion."
+                }
+              ],
+              "doc": null
+            }
+          },
+          "static_methods": {},
+          "initializers": {
+            "initialize": {
+              "kind": "METHOD",
+              "name": "initialize",
+              "full_name": "Root.Assert.BlockAssertion.initialize",
+              "clauses": [
+                {
+                  "head": "def initialize(@block)",
+                  "arity": 1,
+                  "parameters": [
+                    "@block"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            }
+          },
+          "submodules": {},
+          "subtypes": {}
+        }
+      }
+    },
+    "Color": {
+      "kind": "MODULE",
+      "name": "Color",
+      "full_name": "Root.Color",
+      "doc": null,
+      "constants": {
+        "ANSI_RESET": {
+          "kind": "CONSTANT",
+          "name": "ANSI_RESET",
+          "full_name": "Root.Color.ANSI_RESET",
+          "value": "\"\u001b[0m\"",
+          "doc": null
+        },
+        "ANSI_BLACK": {
+          "kind": "CONSTANT",
+          "name": "ANSI_BLACK",
+          "full_name": "Root.Color.ANSI_BLACK",
+          "value": "\"\u001b[0;30m\"",
+          "doc": null
+        },
+        "ANSI_RED": {
+          "kind": "CONSTANT",
+          "name": "ANSI_RED",
+          "full_name": "Root.Color.ANSI_RED",
+          "value": "\"\u001b[0;31m\"",
+          "doc": null
+        },
+        "ANSI_GREEN": {
+          "kind": "CONSTANT",
+          "name": "ANSI_GREEN",
+          "full_name": "Root.Color.ANSI_GREEN",
+          "value": "\"\u001b[0;32m\"",
+          "doc": null
+        },
+        "ANSI_YELLOW": {
+          "kind": "CONSTANT",
+          "name": "ANSI_YELLOW",
+          "full_name": "Root.Color.ANSI_YELLOW",
+          "value": "\"\u001b[0;33m\"",
+          "doc": null
+        },
+        "ANSI_BLUE": {
+          "kind": "CONSTANT",
+          "name": "ANSI_BLUE",
+          "full_name": "Root.Color.ANSI_BLUE",
+          "value": "\"\u001b[0;34m\"",
+          "doc": null
+        },
+        "ANSI_PURPLE": {
+          "kind": "CONSTANT",
+          "name": "ANSI_PURPLE",
+          "full_name": "Root.Color.ANSI_PURPLE",
+          "value": "\"\u001b[0;35m\"",
+          "doc": null
+        },
+        "ANSI_CYAN": {
+          "kind": "CONSTANT",
+          "name": "ANSI_CYAN",
+          "full_name": "Root.Color.ANSI_CYAN",
+          "value": "\"\u001b[0;36m\"",
+          "doc": null
+        },
+        "ANSI_WHITE": {
+          "kind": "CONSTANT",
+          "name": "ANSI_WHITE",
+          "full_name": "Root.Color.ANSI_WHITE",
+          "value": "\"\u001b[0;37m\"",
+          "doc": null
+        }
+      },
+      "methods": {
+        "ansi_from_symbol": {
+          "kind": "METHOD",
+          "name": "ansi_from_symbol",
+          "full_name": "Root.Color.ansi_from_symbol",
+          "clauses": [
+            {
+              "head": "def ansi_from_symbol(sym)",
+              "arity": 1,
+              "parameters": [
+                "sym"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "colored": {
+          "kind": "METHOD",
+          "name": "colored",
+          "full_name": "Root.Color.colored",
+          "clauses": [
+            {
+              "head": "def colored(string, sym : Symbol)",
+              "arity": 2,
+              "parameters": [
+                "string",
+                "sym : Symbol"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        }
+      },
+      "submodules": {},
+      "subtypes": {}
+    },
+    "Enumerable": {
+      "kind": "MODULE",
+      "name": "Enumerable",
+      "full_name": "Root.Enumerable",
+      "doc": null,
+      "constants": {},
+      "methods": {
+        "map": {
+          "kind": "METHOD",
+          "name": "map",
+          "full_name": "Root.Enumerable.map",
+          "clauses": [
+            {
+              "head": "def map(&block)",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": "Call `block` for each element of `self` and collect the result for each call into a new List. If `each` does not yield any elements, the result will be an empty List."
+            }
+          ],
+          "doc": null
+        },
+        "join": {
+          "kind": "METHOD",
+          "name": "join",
+          "full_name": "Root.Enumerable.join",
+          "clauses": [
+            {
+              "head": "def join(delimiter : String)",
+              "arity": 1,
+              "parameters": [
+                "delimiter : String"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Creates a new string from the result of calling `to_s` on every element of `self`, inserting `delimiter` between each element."
+            }
+          ],
+          "doc": null
+        },
+        "size": {
+          "kind": "METHOD",
+          "name": "size",
+          "full_name": "Root.Enumerable.size",
+          "clauses": [
+            {
+              "head": "def size",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Returns the size of the enumerable, as determined by the number of elements yielded by `each`."
+            }
+          ],
+          "doc": null
+        },
+        "all?": {
+          "kind": "METHOD",
+          "name": "all?",
+          "full_name": "Root.Enumerable.all?",
+          "clauses": [
+            {
+              "head": "def all?(&block)",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": "Return true if all elements in the enumerable cause `block` to return a truthy value."
+            }
+          ],
+          "doc": null
+        },
+        "any?": {
+          "kind": "METHOD",
+          "name": "any?",
+          "full_name": "Root.Enumerable.any?",
+          "clauses": [
+            {
+              "head": "def any?(&block)",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": "Return true if at least one element in the enumerable evaluates to a truthy value for the given block."
+            }
+          ],
+          "doc": null
+        },
+        "find": {
+          "kind": "METHOD",
+          "name": "find",
+          "full_name": "Root.Enumerable.find",
+          "clauses": [
+            {
+              "head": "def find(&block)",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": "Iterate the enumerable, passing each element to `block`. Return the first element for which the block returns a truthy value."
+            }
+          ],
+          "doc": null
+        },
+        "select": {
+          "kind": "METHOD",
+          "name": "select",
+          "full_name": "Root.Enumerable.select",
+          "clauses": [
+            {
+              "head": "def select(&block)",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": "Iterate the enumerable, passing each element to `block`. Return all elements for which the block returns a truthy value."
+            }
+          ],
+          "doc": null
+        },
+        "min": {
+          "kind": "METHOD",
+          "name": "min",
+          "full_name": "Root.Enumerable.min",
+          "clauses": [
+            {
+              "head": "def min",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Returns the element with the lowest value as determined by <."
+            }
+          ],
+          "doc": null
+        },
+        "max": {
+          "kind": "METHOD",
+          "name": "max",
+          "full_name": "Root.Enumerable.max",
+          "clauses": [
+            {
+              "head": "def max",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Returns the element with the highest value as determined by >."
+            }
+          ],
+          "doc": null
+        },
+        "sort": {
+          "kind": "METHOD",
+          "name": "sort",
+          "full_name": "Root.Enumerable.sort",
+          "clauses": [
+            {
+              "head": "def sort",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Returns a sorted list of all elements."
+            }
+          ],
+          "doc": null
+        },
+        "to_list": {
+          "kind": "METHOD",
+          "name": "to_list",
+          "full_name": "Root.Enumerable.to_list",
+          "clauses": [
+            {
+              "head": "def to_list",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Returns a list containing all elements."
+            }
+          ],
+          "doc": null
+        },
+        "reduce": {
+          "kind": "METHOD",
+          "name": "reduce",
+          "full_name": "Root.Enumerable.reduce",
+          "clauses": [
+            {
+              "head": "def reduce(&block)",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": "For every element in the enumerable, call block with the result of the previous call and the current element as arguments. Returns a single value.\nIf an initial value is given, it will be used as the accumulator argument for the block call with the first element. If an initial value is not given, the first element will not be passed to the block and will be be used as the accumulator for the block call with the second element."
+            },
+            {
+              "head": "def reduce(value, &block)",
+              "arity": 1,
+              "parameters": [
+                "value"
+              ],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": null
+            }
+          ],
+          "doc": null
+        }
+      },
+      "submodules": {},
+      "subtypes": {}
+    },
+    "Spec": {
+      "kind": "MODULE",
+      "name": "Spec",
+      "full_name": "Root.Spec",
+      "doc": "A simple library for writing specs around Myst code. Specs are written using `it`, providing either a name, a code block to test, or both. Multiple `it`s can be organized under a `describe` block for better visual clarity.\nThe Spec library operates primarily through `assert`. Each spec can make multiple calls to `assert`, with an argument that is expected to be truthy. If the given argument is not truthy, the spec is considered failed, and the suite will not pass.\nBy default, a passing assertion will output a green `.` to the terminal, while a failing assertion will output a red `F`. For now, execution will immediately halt on the first assertion failure, and the program will exit with a non-zero status code.",
+      "constants": {},
+      "methods": {
+        "it": {
+          "kind": "METHOD",
+          "name": "it",
+          "full_name": "Root.Spec.it",
+          "clauses": [
+            {
+              "head": "def it(name, &block)",
+              "arity": 1,
+              "parameters": [
+                "name"
+              ],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": null
+            },
+            {
+              "head": "def it(&block)",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": null
+            },
+            {
+              "head": "def it(name)",
+              "arity": 1,
+              "parameters": [
+                "name"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "describe": {
+          "kind": "METHOD",
+          "name": "describe",
+          "full_name": "Root.Spec.describe",
+          "clauses": [
+            {
+              "head": "def describe(name, &block)",
+              "arity": 1,
+              "parameters": [
+                "name"
+              ],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": null
+            }
+          ],
+          "doc": null
+        }
+      },
+      "submodules": {},
+      "subtypes": {}
+    }
+  },
+  "subtypes": {
+    "File": {
+      "kind": "TYPE",
+      "name": "File",
+      "full_name": "Root.File",
+      "doc": null,
+      "constants": {},
+      "instance_methods": {
+        "path": {
+          "kind": "METHOD",
+          "name": "path",
+          "full_name": "Root.File.path",
+          "clauses": [
+            {
+              "head": "def path",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "mode": {
+          "kind": "METHOD",
+          "name": "mode",
+          "full_name": "Root.File.mode",
+          "clauses": [
+            {
+              "head": "def mode",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        }
+      },
+      "static_methods": {
+        "open": {
+          "kind": "METHOD",
+          "name": "open",
+          "full_name": "Root.File.open",
+          "clauses": [
+            {
+              "head": "defstatic open(name : String, mode)",
+              "arity": 2,
+              "parameters": [
+                "name : String",
+                "mode"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            },
+            {
+              "head": "defstatic open(name : String)",
+              "arity": 1,
+              "parameters": [
+                "name : String"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        }
+      },
+      "initializers": {},
+      "submodules": {},
+      "subtypes": {}
+    },
+    "Integer": {
+      "kind": "TYPE",
+      "name": "Integer",
+      "full_name": "Root.Integer",
+      "doc": null,
+      "constants": {},
+      "instance_methods": {
+        "times": {
+          "kind": "METHOD",
+          "name": "times",
+          "full_name": "Root.Integer.times",
+          "clauses": [
+            {
+              "head": "def times(&block)",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": "Call block as many times as the value of this integer."
+            }
+          ],
+          "doc": null
+        }
+      },
+      "static_methods": {},
+      "initializers": {},
+      "submodules": {},
+      "subtypes": {}
+    },
+    "IO": {
+      "kind": "TYPE",
+      "name": "IO",
+      "full_name": "Root.IO",
+      "doc": null,
+      "constants": {},
+      "instance_methods": {
+        "print": {
+          "kind": "METHOD",
+          "name": "print",
+          "full_name": "Root.IO.print",
+          "clauses": [
+            {
+              "head": "def print(value)",
+              "arity": 1,
+              "parameters": [
+                "value"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Writes the given value through this IO, in order. The value will be converted to a string by calling `to_s` on it, then written to the IO using `write`."
+            }
+          ],
+          "doc": null
+        },
+        "puts": {
+          "kind": "METHOD",
+          "name": "puts",
+          "full_name": "Root.IO.puts",
+          "clauses": [
+            {
+              "head": "def puts",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Writes the given values through this IO, in order. Each value will be converted to a string by calling `to_s` on it, then written to the IO using `write`.\nUnlike `print`, each value will also be succeeded by a newline character. If no arguments are given, a single newline character will be written to the IO."
+            },
+            {
+              "head": "def puts(*values)",
+              "arity": 1,
+              "parameters": [
+                "*values"
+              ],
+              "splat_index": 0,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "gets": {
+          "kind": "METHOD",
+          "name": "gets",
+          "full_name": "Root.IO.gets",
+          "clauses": [
+            {
+              "head": "def gets",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Reads from the IO until a newline character is found. Returns a String containing all of the characters read from the IO, excluding the newline character.\nIf a `read` call returns an empty String before a newline character is found, the characters up until that point will be returned."
+            }
+          ],
+          "doc": null
+        }
+      },
+      "static_methods": {},
+      "initializers": {},
+      "submodules": {},
+      "subtypes": {}
+    },
+    "List": {
+      "kind": "TYPE",
+      "name": "List",
+      "full_name": "Root.List",
+      "doc": null,
+      "constants": {},
+      "instance_methods": {
+        "to_s": {
+          "kind": "METHOD",
+          "name": "to_s",
+          "full_name": "Root.List.to_s",
+          "clauses": [
+            {
+              "head": "def to_s",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Creates a string representation of this List by calling `join` with the delimiter set as `,`. The result will be wrapped in square brackets.\nFor example: `[1,2,3].to_s` will yield `[1,2,3]`."
+            }
+          ],
+          "doc": null
+        },
+        "first": {
+          "kind": "METHOD",
+          "name": "first",
+          "full_name": "Root.List.first",
+          "clauses": [
+            {
+              "head": "def first",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "first?": {
+          "kind": "METHOD",
+          "name": "first?",
+          "full_name": "Root.List.first?",
+          "clauses": [
+            {
+              "head": "def first?",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "last": {
+          "kind": "METHOD",
+          "name": "last",
+          "full_name": "Root.List.last",
+          "clauses": [
+            {
+              "head": "def last",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "last?": {
+          "kind": "METHOD",
+          "name": "last?",
+          "full_name": "Root.List.last?",
+          "clauses": [
+            {
+              "head": "def last?",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "empty?": {
+          "kind": "METHOD",
+          "name": "empty?",
+          "full_name": "Root.List.empty?",
+          "clauses": [
+            {
+              "head": "def empty?",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Return `true` if the List contains 0 elements. Return `false` otherwise."
+            }
+          ],
+          "doc": null
+        }
+      },
+      "static_methods": {},
+      "initializers": {},
+      "submodules": {},
+      "subtypes": {}
+    },
+    "Map": {
+      "kind": "TYPE",
+      "name": "Map",
+      "full_name": "Root.Map",
+      "doc": null,
+      "constants": {},
+      "instance_methods": {
+        "empty?": {
+          "kind": "METHOD",
+          "name": "empty?",
+          "full_name": "Root.Map.empty?",
+          "clauses": [
+            {
+              "head": "def empty?",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Return `true` if the Map contains 0 entries. Return `false` otherwise."
+            }
+          ],
+          "doc": null
+        }
+      },
+      "static_methods": {},
+      "initializers": {},
+      "submodules": {},
+      "subtypes": {}
+    },
+    "String": {
+      "kind": "TYPE",
+      "name": "String",
+      "full_name": "Root.String",
+      "doc": null,
+      "constants": {},
+      "instance_methods": {
+        "empty?": {
+          "kind": "METHOD",
+          "name": "empty?",
+          "full_name": "Root.String.empty?",
+          "clauses": [
+            {
+              "head": "def empty?",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": "Return `true` if the String contains 0 characters. Return `false` otherwise."
+            }
+          ],
+          "doc": null
+        },
+        "each_char": {
+          "kind": "METHOD",
+          "name": "each_char",
+          "full_name": "Root.String.each_char",
+          "clauses": [
+            {
+              "head": "def each_char(&block)",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": "block",
+              "doc": null
+            }
+          ],
+          "doc": null
+        }
+      },
+      "static_methods": {},
+      "initializers": {},
+      "submodules": {},
+      "subtypes": {}
+    },
+    "Time": {
+      "kind": "TYPE",
+      "name": "Time",
+      "full_name": "Root.Time",
+      "doc": null,
+      "constants": {},
+      "instance_methods": {
+        "validate": {
+          "kind": "METHOD",
+          "name": "validate",
+          "full_name": "Root.Time.validate",
+          "clauses": [
+            {
+              "head": "def validate(year, month, day, hour, minute, second, nanosecond)",
+              "arity": 7,
+              "parameters": [
+                "year",
+                "month",
+                "day",
+                "hour",
+                "minute",
+                "second",
+                "nanosecond"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "seconds": {
+          "kind": "METHOD",
+          "name": "seconds",
+          "full_name": "Root.Time.seconds",
+          "clauses": [
+            {
+              "head": "def seconds",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "nanoseconds": {
+          "kind": "METHOD",
+          "name": "nanoseconds",
+          "full_name": "Root.Time.nanoseconds",
+          "clauses": [
+            {
+              "head": "def nanoseconds",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "year": {
+          "kind": "METHOD",
+          "name": "year",
+          "full_name": "Root.Time.year",
+          "clauses": [
+            {
+              "head": "def year",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "month": {
+          "kind": "METHOD",
+          "name": "month",
+          "full_name": "Root.Time.month",
+          "clauses": [
+            {
+              "head": "def month",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "day": {
+          "kind": "METHOD",
+          "name": "day",
+          "full_name": "Root.Time.day",
+          "clauses": [
+            {
+              "head": "def day",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "hour": {
+          "kind": "METHOD",
+          "name": "hour",
+          "full_name": "Root.Time.hour",
+          "clauses": [
+            {
+              "head": "def hour",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "minute": {
+          "kind": "METHOD",
+          "name": "minute",
+          "full_name": "Root.Time.minute",
+          "clauses": [
+            {
+              "head": "def minute",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "second": {
+          "kind": "METHOD",
+          "name": "second",
+          "full_name": "Root.Time.second",
+          "clauses": [
+            {
+              "head": "def second",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "millisecond": {
+          "kind": "METHOD",
+          "name": "millisecond",
+          "full_name": "Root.Time.millisecond",
+          "clauses": [
+            {
+              "head": "def millisecond",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "nanosecond": {
+          "kind": "METHOD",
+          "name": "nanosecond",
+          "full_name": "Root.Time.nanosecond",
+          "clauses": [
+            {
+              "head": "def nanosecond",
+              "arity": 0,
+              "parameters": [],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        },
+        "-": {
+          "kind": "METHOD",
+          "name": "-",
+          "full_name": "Root.Time.-",
+          "clauses": [
+            {
+              "head": "def -(other : Time)",
+              "arity": 1,
+              "parameters": [
+                "other : Time"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            },
+            {
+              "head": "def -(other)",
+              "arity": 1,
+              "parameters": [
+                "other"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        }
+      },
+      "static_methods": {},
+      "initializers": {
+        "initialize": {
+          "kind": "METHOD",
+          "name": "initialize",
+          "full_name": "Root.Time.initialize",
+          "clauses": [
+            {
+              "head": "def initialize(seconds, nanoseconds)",
+              "arity": 2,
+              "parameters": [
+                "seconds",
+                "nanoseconds"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            },
+            {
+              "head": "def initialize(year, month, day)",
+              "arity": 3,
+              "parameters": [
+                "year",
+                "month",
+                "day"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            },
+            {
+              "head": "def initialize(year, month, day, hour)",
+              "arity": 4,
+              "parameters": [
+                "year",
+                "month",
+                "day",
+                "hour"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            },
+            {
+              "head": "def initialize(year, month, day, hour, minute)",
+              "arity": 5,
+              "parameters": [
+                "year",
+                "month",
+                "day",
+                "hour",
+                "minute"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            },
+            {
+              "head": "def initialize(year, month, day, hour, minute, second)",
+              "arity": 6,
+              "parameters": [
+                "year",
+                "month",
+                "day",
+                "hour",
+                "minute",
+                "second"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            },
+            {
+              "head": "def initialize(year, month, day, hour, minute, second, nanosecond)",
+              "arity": 7,
+              "parameters": [
+                "year",
+                "month",
+                "day",
+                "hour",
+                "minute",
+                "second",
+                "nanosecond"
+              ],
+              "splat_index": null,
+              "block_parameter": null,
+              "doc": null
+            }
+          ],
+          "doc": null
+        }
+      },
+      "submodules": {
+        "Util": {
+          "kind": "MODULE",
+          "name": "Util",
+          "full_name": "Root.Time.Util",
+          "doc": "A module containing utility functions and constants for performing calculations with times. This module is primarily used by the `Time` type to properly translate between componentized time objects and seconds or nanoseconds.",
+          "constants": {
+            "DAYS_MONTH": {
+              "kind": "CONSTANT",
+              "name": "DAYS_MONTH",
+              "full_name": "Root.Time.Util.DAYS_MONTH",
+              "value": "[0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]",
+              "doc": "An array representing the number of days in each month of a normal year, with January being month `0`."
+            },
+            "DAYS_MONTH_LEAP": {
+              "kind": "CONSTANT",
+              "name": "DAYS_MONTH_LEAP",
+              "full_name": "Root.Time.Util.DAYS_MONTH_LEAP",
+              "value": "[0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]",
+              "doc": "Similar to `DAYS_MONTH`, but for the months of a leap year."
+            },
+            "SECONDS_PER_MINUTE": {
+              "kind": "CONSTANT",
+              "name": "SECONDS_PER_MINUTE",
+              "full_name": "Root.Time.Util.SECONDS_PER_MINUTE",
+              "value": "60",
+              "doc": null
+            },
+            "SECONDS_PER_HOUR": {
+              "kind": "CONSTANT",
+              "name": "SECONDS_PER_HOUR",
+              "full_name": "Root.Time.Util.SECONDS_PER_HOUR",
+              "value": "60 * SECONDS_PER_MINUTE",
+              "doc": null
+            },
+            "SECONDS_PER_DAY": {
+              "kind": "CONSTANT",
+              "name": "SECONDS_PER_DAY",
+              "full_name": "Root.Time.Util.SECONDS_PER_DAY",
+              "value": "24 * SECONDS_PER_HOUR",
+              "doc": null
+            },
+            "NANOSECONDS_PER_MILLISECOND": {
+              "kind": "CONSTANT",
+              "name": "NANOSECONDS_PER_MILLISECOND",
+              "full_name": "Root.Time.Util.NANOSECONDS_PER_MILLISECOND",
+              "value": "1000000.0",
+              "doc": null
+            },
+            "NANOSECONDS_PER_SECOND": {
+              "kind": "CONSTANT",
+              "name": "NANOSECONDS_PER_SECOND",
+              "full_name": "Root.Time.Util.NANOSECONDS_PER_SECOND",
+              "value": "1000000000.0",
+              "doc": null
+            },
+            "NANOSECONDS_PER_MINUTE": {
+              "kind": "CONSTANT",
+              "name": "NANOSECONDS_PER_MINUTE",
+              "full_name": "Root.Time.Util.NANOSECONDS_PER_MINUTE",
+              "value": "NANOSECONDS_PER_SECOND * 60",
+              "doc": null
+            },
+            "DAYS_PER_400_YEARS": {
+              "kind": "CONSTANT",
+              "name": "DAYS_PER_400_YEARS",
+              "full_name": "Root.Time.Util.DAYS_PER_400_YEARS",
+              "value": "365 * 400 + 97",
+              "doc": null
+            },
+            "DAYS_PER_100_YEARS": {
+              "kind": "CONSTANT",
+              "name": "DAYS_PER_100_YEARS",
+              "full_name": "Root.Time.Util.DAYS_PER_100_YEARS",
+              "value": "365 * 100 + 24",
+              "doc": null
+            },
+            "DAYS_PER_4_YEARS": {
+              "kind": "CONSTANT",
+              "name": "DAYS_PER_4_YEARS",
+              "full_name": "Root.Time.Util.DAYS_PER_4_YEARS",
+              "value": "365 * 4 + 1",
+              "doc": null
+            }
+          },
+          "methods": {
+            "leap_year?": {
+              "kind": "METHOD",
+              "name": "leap_year?",
+              "full_name": "Root.Time.Util.leap_year?",
+              "clauses": [
+                {
+                  "head": "def leap_year?(year)",
+                  "arity": 1,
+                  "parameters": [
+                    "year"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            },
+            "absolute_days": {
+              "kind": "METHOD",
+              "name": "absolute_days",
+              "full_name": "Root.Time.Util.absolute_days",
+              "clauses": [
+                {
+                  "head": "def absolute_days(year, month, day)",
+                  "arity": 3,
+                  "parameters": [
+                    "year",
+                    "month",
+                    "day"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            },
+            "year_month_day_day_year": {
+              "kind": "METHOD",
+              "name": "year_month_day_day_year",
+              "full_name": "Root.Time.Util.year_month_day_day_year",
+              "clauses": [
+                {
+                  "head": "def year_month_day_day_year(seconds)",
+                  "arity": 1,
+                  "parameters": [
+                    "seconds"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            },
+            "convert_to_seconds": {
+              "kind": "METHOD",
+              "name": "convert_to_seconds",
+              "full_name": "Root.Time.Util.convert_to_seconds",
+              "clauses": [
+                {
+                  "head": "def convert_to_seconds(year, month, day, hour, minute, second)",
+                  "arity": 6,
+                  "parameters": [
+                    "year",
+                    "month",
+                    "day",
+                    "hour",
+                    "minute",
+                    "second"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            },
+            "days_in_month": {
+              "kind": "METHOD",
+              "name": "days_in_month",
+              "full_name": "Root.Time.Util.days_in_month",
+              "clauses": [
+                {
+                  "head": "def days_in_month(year, month)",
+                  "arity": 2,
+                  "parameters": [
+                    "year",
+                    "month"
+                  ],
+                  "splat_index": null,
+                  "block_parameter": null,
+                  "doc": null
+                }
+              ],
+              "doc": null
+            }
+          },
+          "submodules": {},
+          "subtypes": {}
+        }
+      },
+      "subtypes": {}
+    }
+  }
+}
