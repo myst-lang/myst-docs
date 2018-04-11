@@ -65,6 +65,7 @@
           <div id="display">
             <h1 class="display__name">
               <span class="muted"><%= full_name.replace(name, '') %></span><%= name %>
+              <span class="display__kind"><%= kind %></span>
             </h1>
             <p class="display__summary"><%= MarkdownRenderer.render(doc) %></p>
 

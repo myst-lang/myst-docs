@@ -139,6 +139,14 @@ code {
   font-weight: 500;
 }
 
+.display__kind {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.5em;
+  text-transform: lowercase;
+  color: var(--light-gray);
+}
+
 .display__section-name {
   margin-top: 48px;
 }
