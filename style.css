@@ -112,7 +112,7 @@ code {
   font-size: 0.8rem;
   text-transform: uppercase;
   font-weight: 700;
-  margin: 16px 0 0px 0;
+  margin: 24px 0 0px 0;
   color: var(--invert-header-color);
 }
 
@@ -139,8 +139,12 @@ code {
   font-weight: 500;
 }
 
+.display__section-name {
+  margin-top: 48px;
+}
+
 .display__method {
-  margin: 12px 0;
+  margin: 24px 0;
   border-left: 2px solid var(--border-color);
 }
 
@@ -153,7 +157,7 @@ code {
 }
 
 .display__method__name {
-  padding: 4px 12px;
+  padding: 4px 16px;
   display: block;
   font-family: var(--font-monospace);
   font-size: 1rem;
@@ -162,7 +166,7 @@ code {
 
 .display__method__head {
   display: block;
-  padding: 4px 12px;
+  padding: 4px 16px;
   margin: 8px 0;
   background-color: var(--code-bg-color);
   font-family: var(--font-monospace);
@@ -171,8 +175,8 @@ code {
 
 
 .display__constant {
-  padding: 0 12px;
-  margin: 12px 0;
+  padding: 0 16px;
+  margin: 24px 0;
   border-left: 2px solid var(--border-color);
 }
 
