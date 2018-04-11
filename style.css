@@ -70,14 +70,14 @@ code {
 .content .index-wrapper {
   flex: 0 0 340px;
   overflow-y: scroll;
+  height: 100vh;
+  background-color: var(--invert-bg-color);
+  color: var(--invert-color);
 }
 
 .content #index {
   padding: 32px;
   padding-bottom: 64px;
-  width: 100%;
-  background-color: var(--invert-bg-color);
-  color: var(--invert-color);
 }
 
 .content .display-wrapper {
