@@ -30,6 +30,22 @@
   --font-monospace: Menlo, monospace, monospace;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-color);
+  line-height: 1.7rem;
+  font-size: 1rem;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
 .muted {
   color: var(--muted-color);
 }
@@ -43,39 +59,35 @@ code {
 }
 
 
-body {
-  font-family: var(--font-sans);
-  color: var(--text-color);
-  line-height: 1.7rem;
-  font-size: 1rem;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-
 
 .content {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  overflow: hidden;
 }
 
-.content .index-placeholder {
-  flex: 0 0 380px;
+.content .index-wrapper {
+  flex: 0 0 340px;
+  overflow-y: scroll;
 }
 
 .content #index {
-  position: fixed;
-  width: 300px;
-  padding: 24px;
-  padding-bottom: 32px;
+  padding: 32px;
+  padding-bottom: 64px;
+  width: 100%;
   background-color: var(--invert-bg-color);
   color: var(--invert-color);
-  height: 100%;
+}
+
+.content .display-wrapper {
+  flex: 1 1 auto;
+  overflow-y: scroll;
 }
 
 .content #display {
-  flex: 0 1 720px;
-  padding: 32px 0;
+  max-width: 780px;
+  padding: 32px;
   margin: 0 auto;
 }
 
