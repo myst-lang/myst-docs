@@ -19,6 +19,7 @@
   --invert-header-color: var(--light-gray);
   --invert-bg-color: var(--dark-blue);
   --invert-hover-color: var(--mid-dark-blue);
+  --invert-border-color: var(--light-gray);
 
   --muted-color: var(--mid-light-blue);
   --muted-bg-color: var(--light-blue);
@@ -26,8 +27,8 @@
   --code-color: var(--mid-dark-blue);
   --code-bg-color: var(--ultra-light-blue);
 
-  --font-sans: -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-monospace: Menlo, monospace, monospace;
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-monospace: 'IBM Plex Mono', monospace, monospace;
 }
 
 html, body {
@@ -38,8 +39,8 @@ html, body {
 body {
   font-family: var(--font-sans);
   color: var(--text-color);
-  line-height: 1.7rem;
-  font-size: 1rem;
+  line-height: 1.8rem;
+  font-size: 16px;
   margin: 0;
   box-sizing: border-box;
 }
@@ -52,6 +53,7 @@ body {
 
 code {
   display: inline-block;
+  line-height: 1.3em;
   padding: 0px 4px;
   border-radius: 2px;
   background-color: var(--code-bg-color);
@@ -67,17 +69,45 @@ code {
   overflow: hidden;
 }
 
-.content .index-wrapper {
+.content .sidebar {
   flex: 0 0 340px;
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   background-color: var(--invert-bg-color);
   color: var(--invert-color);
 }
 
-.content #index {
+.content .sidebar #sidebar-header {
+  flex: 0 0 80px;
   padding: 32px;
+  display: flex;
+  font-size: 2.2rem;
+  align-items: center;
+  color: var(--invert-color);
+}
+
+.sidebar-header__home-link {
+  text-decoration: none;
+}
+
+.sidebar-header__logo {
+  width: 72px;
+  height: 72px;
+  margin-right: 16px;
+  display: inline-block;
+}
+
+.sidebar-header__name {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.content .sidebar #index {
+  flex: 1 0 0;
+  padding: 0 32px;
   padding-bottom: 64px;
+  overflow-y: scroll;
 }
 
 .content .display-wrapper {
@@ -90,7 +120,6 @@ code {
   padding: 32px;
   margin: 0 auto;
 }
-
 
 
 .entry__list {
@@ -109,10 +138,11 @@ code {
 
 .entry__section-name {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   text-transform: uppercase;
   font-weight: 700;
   margin: 24px 0 0px 0;
+  font-family: var(--font-condensed);
   color: var(--invert-header-color);
 }
 
@@ -121,6 +151,7 @@ code {
   text-decoration: none;
   padding: 4px 12px;
   font-size: 1rem;
+  font-weight: 400;
   display: block;
   line-height: 1.3rem;
   border-left: 1px solid var(--invert-header-color);
@@ -128,7 +159,7 @@ code {
 
 .entry__list .entry:hover {
   border-left: 4px solid var(--invert-header-color);
-  /*background-color: var(--invert-hover-color);*/
+  background-color: var(--invert-hover-color);
 }
 
 
@@ -154,10 +185,6 @@ code {
 .display__method {
   margin: 24px 0;
   border-left: 2px solid var(--border-color);
-}
-
-.display__method:hover {
-  background-color: var(--hover-color);
 }
 
 .display__method p {
