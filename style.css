@@ -17,6 +17,7 @@
   --hover-color: var(--ultra-light-blue);
 
   --invert-color: var(--lighter-gray);
+  --invert-muted-color: var(--mid-light-blue);
   --invert-bg-color: var(--dark-blue);
   --invert-hover-color: var(--mid-dark-blue);
   --invert-border-color: var(--light-gray);
@@ -107,12 +108,24 @@ code {
 .sidebar-header__logo {
   width: 72px;
   height: 72px;
+  margin-right: var(--spacing-2u);
   display: inline-block;
+}
+
+.sidebar-header__info {
+  margin-top: var(--spacing-1u);
 }
 
 .sidebar-header__name {
   font-size: 1em;
   font-weight: 500;
+}
+
+.sidebar-header__version {
+  display: block;
+  font-size: 0.44em;
+  margin-top: var(--spacing-0u);
+  color: var(--invert-muted-color);
 }
 
 .content .sidebar #index {

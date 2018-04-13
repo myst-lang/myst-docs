@@ -43,15 +43,15 @@ class MystDoc {
   // Lookup the given path in the doc structure
   navigate_to(path) {
     let content = this.content_for_path(path);
-    this.container.innerHTML = this.generator(content);
+    this.container.innerHTML = this.generator({
+      root: this.content,
+      content: content
+    });
   }
 
 
   content_for_path(path) {
-    // TODO: Restructure doc json to have a Root key so this isn't necessary.
-    path = path.replace(/^Root\.?/, "");
-
-    // If the path is empty, default to the root.
+    // If the path is empty, just use the root.
     if(path == "") {
       return this.content;
     }
