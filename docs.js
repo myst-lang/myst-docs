@@ -45,7 +45,10 @@ class MystDoc {
     let content = this.content_for_path(path);
     this.container.innerHTML = this.generator({
       root: this.content,
-      content: content
+      content: content,
+      misc: {
+        parent: this.parent_of_path(content.full_name),
+      }
     });
   }
 
@@ -58,7 +61,7 @@ class MystDoc {
 
     let content = this.content;
 
-    const path_components = path.split(/\.|\#/);
+    const path_components = this.path_components_for(path);
     for(var i = 0; i < path_components.length; i++) {
       let path_component = path_components[i];
 
@@ -74,6 +77,18 @@ class MystDoc {
     }
 
     return content;
+  }
+
+  path_components_for(path) {
+    return path.split(/\.|\#/);
+  }
+
+  parent_of_path(path) {
+    if(!path || path.length == 0) {
+      return null;
+    } else {
+      return path.split(/(?=\.|\#)/g).slice(0, -1).join('');
+    }
   }
 };
 

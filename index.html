@@ -19,6 +19,17 @@
               <img class="sidebar-header__logo" src="<%= root.logo_url %>">
             </div>
           </a>
+
+          <% if(misc.parent) { %>
+            <div class="sidebar-breadcrumbs">
+              &lt; <a href="#<%= misc.parent %>" class="sidebar-breadcrumb"><%= misc.parent %></span>
+            </div>
+          <% } else if(content.kind != "ROOT") { %>
+            <div class="sidebar-breadcrumbs">
+              &lt; <a href="#" class="sidebar-breadcrumb">Kernel</span>
+            </div>
+          <% } %>
+
           <div id="index">
             <span class="entry__section-name">Modules</span>
             <ul class="entry__list entry__list--modules">

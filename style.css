@@ -22,7 +22,7 @@
   --invert-bg-color: var(--dark-blue);
   --invert-header-bg-color: var(--darker-blue);
   --invert-hover-color: var(--mid-dark-blue);
-  --invert-border-color: var(--light-gray);
+  --invert-border-color: var(--mid-dark-blue);
 
   --muted-color: var(--mid-light-blue);
   --muted-bg-color: var(--light-blue);
@@ -110,6 +110,7 @@ code {
 }
 
 .sidebar-header__home-link {
+  display: block;
   text-decoration: none;
 }
 
@@ -133,6 +134,24 @@ code {
   font-size: 0.44em;
   margin-top: var(--spacing-0u);
   color: var(--invert-muted-color);
+}
+
+.sidebar-breadcrumbs {
+  display: block;
+  font-weight: 300;
+  padding: var(--spacing-0u) var(--spacing-4u);
+  border-top: 1px solid var(--invert-border-color);
+  border-bottom: 1px solid var(--invert-border-color);
+}
+
+.sidebar-breadcrumb {
+  color: var(--invert-color);
+  text-decoration: none;
+  margin-right: var(--spacing-1u);
+}
+
+.sidebar-breadcrumb:hover {
+  color: var(--invert-hover-color);
 }
 
 .content .sidebar #index {
