@@ -147,6 +147,7 @@ code {
 .sidebar-breadcrumb {
   color: var(--invert-color);
   text-decoration: none;
+  margin-left: calc(-1 * var(--spacing-1u));
 }
 
 .sidebar-breadcrumb:hover {
@@ -167,6 +168,14 @@ code {
   padding: var(--spacing-4u);
   padding-top: 0;
   overflow-y: scroll;
+}
+
+.sidebar-breadcrumbs__name {
+  display: block;
+  padding: var(--spacing-2u) var(--spacing-4u);
+  font-size: 1.6rem;
+  background-color: var(--invert-header-bg-color);
+  border-bottom: 1px solid var(--invert-border-color);
 }
 
 .content .display-wrapper {

@@ -20,15 +20,18 @@
             </div>
           </a>
 
-          <% if(misc.parent) { %>
-            <a href="#<%= misc.parent %>" class="sidebar-breadcrumb">
-              <span class="sidebar-breadcrumb__chevron"></span> <%= misc.parent %>
-            </a>
-          <% } else if(content.kind != "ROOT") { %>
-            <a href="#" class="sidebar-breadcrumb">
-              <span class="sidebar-breadcrumb__chevron"></span> Kernel
-            </a>
-          <% } %>
+          <div class="sidebar-breadcrumbs">
+            <% if(misc.parent) { %>
+              <a href="#<%= misc.parent %>" class="sidebar-breadcrumb">
+                <span class="sidebar-breadcrumb__chevron"></span> <%= misc.parent %>
+              </a>
+            <% } else if(content.kind != "ROOT") { %>
+              <a href="#" class="sidebar-breadcrumb">
+                <span class="sidebar-breadcrumb__chevron"></span> Kernel
+              </a>
+            <% } %>
+            <span class="sidebar-breadcrumbs__name"><%= content.name || "Kernel" %></span>
+          </div>
 
           <div id="index">
             <span class="entry__section-name">Modules</span>
