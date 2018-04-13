@@ -159,7 +159,6 @@ code {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  /*margin-left: 0.4em;*/
 }
 
 .entry__list a {
@@ -182,8 +181,8 @@ code {
   color: var(--invert-color);
   text-decoration: none;
   padding: var(--spacing-0u) 0;
-  font-family: var(--font-condensed);
-  font-size: 1rem;
+  /*font-family: var(--font-condensed);*/
+  font-size: 0.86rem;
   font-weight: 300;
   display: block;
   line-height: var(--line-height-condensed);
@@ -193,9 +192,9 @@ code {
 .entry__list .entry .entry__chevron {
   display: inline-block;
   width: var(--spacing-1u);
-  border-left: 0.3em solid var(--invert-color);
-  border-top: 0.3em solid rgba(0,0,0,0);
-  border-bottom: 0.3em solid rgba(0,0,0,0);
+  border-left: 0.36em solid var(--invert-color);
+  border-top: 0.36em solid rgba(0,0,0,0);
+  border-bottom: 0.36em solid rgba(0,0,0,0);
   opacity: 0;
   transition: var(--transition-fast);
 }
