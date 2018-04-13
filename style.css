@@ -136,7 +136,7 @@ code {
   color: var(--invert-muted-color);
 }
 
-.sidebar-breadcrumbs {
+.sidebar-breadcrumb {
   display: block;
   font-weight: 300;
   padding: var(--spacing-0u) var(--spacing-4u);
@@ -147,11 +147,19 @@ code {
 .sidebar-breadcrumb {
   color: var(--invert-color);
   text-decoration: none;
-  margin-right: var(--spacing-1u);
 }
 
 .sidebar-breadcrumb:hover {
-  color: var(--invert-hover-color);
+  background-color: var(--invert-hover-color);
+}
+
+.sidebar-breadcrumb__chevron {
+  display: inline-block;
+  width: var(--spacing-1u);
+  margin-right: var(--spacing-1u);
+  border-right: 0.36em solid var(--invert-color);
+  border-top: 0.36em solid rgba(0,0,0,0);
+  border-bottom: 0.36em solid rgba(0,0,0,0);
 }
 
 .content .sidebar #index {

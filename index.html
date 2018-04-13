@@ -21,13 +21,13 @@
           </a>
 
           <% if(misc.parent) { %>
-            <div class="sidebar-breadcrumbs">
-              &lt; <a href="#<%= misc.parent %>" class="sidebar-breadcrumb"><%= misc.parent %></span>
-            </div>
+            <a href="#<%= misc.parent %>" class="sidebar-breadcrumb">
+              <span class="sidebar-breadcrumb__chevron"></span> <%= misc.parent %>
+            </a>
           <% } else if(content.kind != "ROOT") { %>
-            <div class="sidebar-breadcrumbs">
-              &lt; <a href="#" class="sidebar-breadcrumb">Kernel</span>
-            </div>
+            <a href="#" class="sidebar-breadcrumb">
+              <span class="sidebar-breadcrumb__chevron"></span> Kernel
+            </a>
           <% } %>
 
           <div id="index">
