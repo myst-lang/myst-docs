@@ -2,7 +2,7 @@
   <head>
     <title>Myst documentation</title>
 
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600|IBM+Plex+Sans+Condensed:700|IBM+Plex+Sans:300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600|IBM+Plex+Sans+Condensed:300,700|IBM+Plex+Sans:300,400,600" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -23,21 +23,36 @@
             <span class="entry__section-name">Modules</span>
             <ul class="entry__list entry__list--modules">
               <% for(var module in content.submodules) { %>
-                <a href="#<%= content.submodules[module].full_name %>"><li class="entry"><%= module %></li></a>
+                <a href="#<%= content.submodules[module].full_name %>">
+                  <li class="entry">
+                    <span class="entry__chevron"></span>
+                    <%= module %>
+                  </li>
+                </a>
               <% } %>
             </ul>
 
             <span class="entry__section-name">Types</span>
             <ul class="entry__list entry__list--types">
               <% for(var type in content.subtypes) { %>
-                <a href="#<%= content.subtypes[type].full_name %>"><li class="entry"><%= type %></li></a>
+                <a href="#<%= content.subtypes[type].full_name %>">
+                  <li class="entry">
+                    <span class="entry__chevron"></span>
+                    <%= type %>
+                  </li>
+                </a>
               <% } %>
             </ul>
 
             <span class="entry__section-name">Constants</span>
             <ul class="entry__list entry__list--constants">
               <% for(var constant in content.constants) { %>
-                <a href="#<%= content.constants[constant].full_name %>"><li class="entry"><%= constant %></li></a>
+                <a href="#<%= content.constants[constant].full_name %>">
+                  <li class="entry">
+                    <span class="entry__chevron"></span>
+                    <%= constant %>
+                  </li>
+                </a>
               <% } %>
             </ul>
 
@@ -45,26 +60,46 @@
               <span class="entry__section-name">Initializers</span>
               <ul class="entry__list entry__list--constants">
                 <% for(var initializer in content.initializers) { %>
-                  <a href="#<%= content.initializers[initializer].full_name %>"><li class="entry"><%= initializer %></li></a>
+                  <a href="#<%= content.initializers[initializer].full_name %>">
+                  <li class="entry">
+                    <span class="entry__chevron"></span>
+                    <%= initializer %>
+                  </li>
+                </a>
                 <% } %>
               </ul>
               <span class="entry__section-name">Static Methods</span>
               <ul class="entry__list entry__list--constants">
                 <% for(var static_method in content.static_methods) { %>
-                  <a href="#<%= content.static_methods[static_method].full_name %>"><li class="entry">.<%= static_method %></li></a>
+                  <a href="#<%= content.static_methods[static_method].full_name %>">
+                  <li class="entry">
+                    <span class="entry__chevron"></span>
+                    .<%= static_method %>
+                  </li>
+                </a>
                 <% } %>
               </ul>
               <span class="entry__section-name">Instance Methods</span>
               <ul class="entry__list entry__list--constants">
                 <% for(var instance_method in content.instance_methods) { %>
-                  <a href="#<%= content.instance_methods[instance_method].full_name %>"><li class="entry">#<%= instance_method %></li></a>
+                  <a href="#<%= content.instance_methods[instance_method].full_name %>">
+                  <li class="entry">
+                    <span class="entry__chevron"></span>
+                    #<%= instance_method %>
+                  </li>
+                </a>
                 <% } %>
               </ul>
             <% } else if(content.kind == "MODULE") { %>
               <span class="entry__section-name">Methods</span>
               <ul class="entry__list entry__list--constants">
                 <% for(var method in content.methods) { %>
-                  <a href="#<%= content.methods[method].full_name %>"><li class="entry">.<%= method %></li></a>
+                  <a href="#<%= content.methods[method].full_name %>">
+                  <li class="entry">
+                    <span class="entry__chevron"></span>
+                    .<%= method %>
+                  </li>
+                </a>
                 <% } %>
               </ul>
             <% } %>
