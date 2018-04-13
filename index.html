@@ -36,85 +36,85 @@
           <div id="index">
             <span class="entry__section-name">Modules</span>
             <ul class="entry__list entry__list--modules">
-              <% for(var module in content.submodules) { %>
+              <% Object.keys(content.submodules).sort().forEach(function(module) { %>
                 <a href="#<%= content.submodules[module].full_name %>">
                   <li class="entry">
                     <span class="entry__chevron"></span>
                     <%= module %>
                   </li>
                 </a>
-              <% } %>
+              <% }); %>
             </ul>
 
             <span class="entry__section-name">Types</span>
             <ul class="entry__list entry__list--types">
-              <% for(var type in content.subtypes) { %>
+              <% Object.keys(content.subtypes).sort().forEach(function(type) { %>
                 <a href="#<%= content.subtypes[type].full_name %>">
                   <li class="entry">
                     <span class="entry__chevron"></span>
                     <%= type %>
                   </li>
                 </a>
-              <% } %>
+              <% }); %>
             </ul>
 
             <span class="entry__section-name">Constants</span>
             <ul class="entry__list entry__list--constants">
-              <% for(var constant in content.constants) { %>
+              <% Object.keys(content.constants).sort().forEach(function(constant) { %>
                 <a href="#<%= content.constants[constant].full_name %>">
                   <li class="entry">
                     <span class="entry__chevron"></span>
                     <%= constant %>
                   </li>
                 </a>
-              <% } %>
+              <% }); %>
             </ul>
 
             <% if(content.kind == "TYPE") { %>
               <span class="entry__section-name">Initializers</span>
               <ul class="entry__list entry__list--constants">
-                <% for(var initializer in content.initializers) { %>
+                <% Object.keys(content.initializers).sort().forEach(function(initializer) { %>
                   <a href="#<%= content.initializers[initializer].full_name %>">
-                  <li class="entry">
-                    <span class="entry__chevron"></span>
-                    <%= initializer %>
-                  </li>
-                </a>
-                <% } %>
+                    <li class="entry">
+                      <span class="entry__chevron"></span>
+                      <%= initializer %>
+                    </li>
+                  </a>
+                <% }); %>
               </ul>
               <span class="entry__section-name">Static Methods</span>
               <ul class="entry__list entry__list--constants">
-                <% for(var static_method in content.static_methods) { %>
+                <% Object.keys(content.static_methods).sort().forEach(function(static_method) { %>
                   <a href="#<%= content.static_methods[static_method].full_name %>">
-                  <li class="entry">
-                    <span class="entry__chevron"></span>
-                    .<%= static_method %>
-                  </li>
-                </a>
-                <% } %>
+                    <li class="entry">
+                      <span class="entry__chevron"></span>
+                      .<%= static_method %>
+                    </li>
+                  </a>
+                <% }); %>
               </ul>
               <span class="entry__section-name">Instance Methods</span>
               <ul class="entry__list entry__list--constants">
-                <% for(var instance_method in content.instance_methods) { %>
+                <% Object.keys(content.instance_methods).sort().forEach(function(instance_method) { %>
                   <a href="#<%= content.instance_methods[instance_method].full_name %>">
-                  <li class="entry">
-                    <span class="entry__chevron"></span>
-                    #<%= instance_method %>
-                  </li>
-                </a>
-                <% } %>
+                    <li class="entry">
+                      <span class="entry__chevron"></span>
+                      #<%= instance_method %>
+                    </li>
+                  </a>
+                <% }); %>
               </ul>
             <% } else if(content.kind == "MODULE" || content.kind == "ROOT") { %>
               <span class="entry__section-name">Methods</span>
               <ul class="entry__list entry__list--constants">
-                <% for(var method in content.methods) { %>
+                <% Object.keys(content.methods).sort().forEach(function(method) { %>
                   <a href="#<%= content.methods[method].full_name %>">
-                  <li class="entry">
-                    <span class="entry__chevron"></span>
-                    .<%= method %>
-                  </li>
-                </a>
-                <% } %>
+                    <li class="entry">
+                      <span class="entry__chevron"></span>
+                      .<%= method %>
+                    </li>
+                  </a>
+                <% }); %>
               </ul>
             <% } %>
           </div>
@@ -131,7 +131,7 @@
 
               <div class="display__section">
                 <h2 class="display__section-name">Constants</h2>
-                <% for(var constant in content.constants) { %>
+                <% Object.keys(content.constants).sort().forEach(function(constant) { %>
                   <% constant = content.constants[constant]; %>
                   <div data-name="<%= constant.full_name %>" class="display__constant">
                     <span class="display__constant__head">
@@ -140,12 +140,12 @@
                     </span>
                     <p><%= MarkdownRenderer.render(constant.doc) %></p>
                   </div>
-                <% } %>
+                <% }); %>
               </div>
 
               <div class="display__section">
                 <h2 class="display__section-name">Initializers</h2>
-                <% for(var initializer in content.initializers) { %>
+                <% Object.keys(content.initializers).sort().forEach(function(initializer) { %>
                   <% initializer = content.initializers[initializer]; %>
                   <div data-name="<%= initializer.full_name %>" class="display__method">
                     <span class="display__method__name"><%= initializer.name %></span>
@@ -156,12 +156,12 @@
                       </div>
                     <% }); %>
                   </div>
-                <% } %>
+                <% }); %>
               </div>
 
               <div class="display__section">
                 <h2 class="display__section-name">Static Methods</h2>
-                <% for(var static_method in content.static_methods) { %>
+                <% Object.keys(content.static_methods).sort().forEach(function(static_method) { %>
                   <% static_method = content.static_methods[static_method]; %>
                   <div data-name="<%= static_method.full_name %>" class="display__method">
                     <span class="display__method__name">.<%= static_method.name %></span>
@@ -172,12 +172,12 @@
                       </div>
                     <% }); %>
                   </div>
-                <% } %>
+                <% }); %>
               </div>
 
               <div class="display__section">
                 <h2 class="display__section-name">Instance Methods</h2>
-                <% for(var instance_method in content.instance_methods) { %>
+                <% Object.keys(content.instance_methods).sort().forEach(function(instance_method) { %>
                   <% instance_method = content.instance_methods[instance_method]; %>
                   <div data-name="<%= instance_method.full_name %>" class="display__method">
                     <span class="display__method__name">#<%= instance_method.name %></span>
@@ -188,7 +188,7 @@
                       </div>
                     <% }); %>
                   </div>
-                <% } %>
+                <% }); %>
               </div>
 
 
@@ -201,7 +201,7 @@
 
               <div class="display__section">
                 <h2 class="display__section-name">Constants</h2>
-                <% for(var constant in content.constants) { %>
+                <% Object.keys(content.constants).sort().forEach(function(constant) { %>
                   <% constant = content.constants[constant]; %>
                   <div data-name="<%= constant.full_name %>" class="display__constant">
                     <span class="display__constant__head">
@@ -210,12 +210,12 @@
                     </span>
                     <p><%= MarkdownRenderer.render(constant.doc) %></p>
                   </div>
-                <% } %>
+                <% }); %>
               </div>
 
               <div class="display__section">
                 <h2 class="display__section-name">Methods</h2>
-                <% for(var method in content.methods) { %>
+                <% Object.keys(content.methods).sort().forEach(function(method) { %>
                   <% method = content.methods[method]; %>
                   <div data-name="<%= method.full_name %>" class="display__method">
                     <span class="display__method__name">.<%= method.name %></span>
@@ -226,7 +226,7 @@
                       </div>
                     <% }); %>
                   </div>
-                <% } %>
+                <% }); %>
               </div>
             <% } else if(content.kind == "ROOT") { %>
               <h1 class="display__name">
@@ -237,7 +237,7 @@
 
               <div class="display__section">
                 <h2 class="display__section-name">Constants</h2>
-                <% for(var constant in content.constants) { %>
+                <% Object.keys(content.constants).sort().forEach(function(constant) { %>
                   <% constant = content.constants[constant]; %>
                   <div data-name="<%= constant.full_name %>" class="display__constant">
                     <span class="display__constant__head">
@@ -246,12 +246,12 @@
                     </span>
                     <p><%= MarkdownRenderer.render(constant.doc) %></p>
                   </div>
-                <% } %>
+                <% }); %>
               </div>
 
               <div class="display__section">
                 <h2 class="display__section-name">Methods</h2>
-                <% for(var method in content.methods) { %>
+                <% Object.keys(content.methods).sort().forEach(function(method) { %>
                   <% method = content.methods[method]; %>
                   <div data-name="<%= method.full_name %>" class="display__method">
                     <span class="display__method__name">.<%= method.name %></span>
@@ -262,7 +262,7 @@
                       </div>
                     <% }); %>
                   </div>
-                <% } %>
+                <% }); %>
               </div>
             <% } %>
           </div>
