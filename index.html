@@ -104,7 +104,7 @@
                 </a>
                 <% } %>
               </ul>
-            <% } else if(content.kind == "MODULE") { %>
+            <% } else if(content.kind == "MODULE" || content.kind == "ROOT") { %>
               <span class="entry__section-name">Methods</span>
               <ul class="entry__list entry__list--constants">
                 <% for(var method in content.methods) { %>
