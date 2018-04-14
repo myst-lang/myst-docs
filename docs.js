@@ -33,6 +33,12 @@ class MystDoc {
   constructor(container) {
     this.container = container;
     this.generator = tmpl($('#docs_template'));
+    this.render = {
+      constant: tmpl($('#constant_template')),
+      method: tmpl($('#method_template')),
+      sidebar_section: tmpl($('#sidebar_section_template')),
+      sorted_list: tmpl($('#sorted_list_template'))
+    }
     this.content = {};
   }
 
@@ -45,10 +51,11 @@ class MystDoc {
     let content = this.content_for_path(path);
     this.container.innerHTML = this.generator({
       root: this.content,
+      render: this.render,
       content: content,
       misc: {
         parent: this.parent_of_path(content.full_name),
-      }
+      },
     });
   }
 
