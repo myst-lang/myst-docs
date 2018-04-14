@@ -15,8 +15,8 @@
   </script>
 
   <script type="text/template" id="constant_template">
-    <% let is_active = decodeURIComponent(window.location.hash.replace(/^\#/, '')) == full_name; %>
-    <div id="<%= full_name %>" class="display__constant <%= is_active ? 'display__constant--active' : '' %>">
+    <div id="<%= full_name %>" class="display__constant">
+      <span class="hash_anchor"></span>
       <span class="display__constant__head">
         <span class="display__constant__name"><%= name %></span>
         <span class="display__constant__value">= <%= value %></span>
@@ -26,8 +26,8 @@
   </script>
 
   <script type="text/template" id="method_template">
-    <% let is_active = decodeURIComponent(window.location.hash.replace(/^\#/, '')) == full_name; %>
-    <div id="<%= full_name %>" class="display__method <%= is_active ? 'display__method--active' : '' %>">
+    <div id="<%= full_name %>" class="display__method">
+      <span class="hash_anchor"></span>
       <% let prefix = arguments[0].prefix || '.'; %>
       <span class="display__method__name"><%= separator %><%= name %></span>
       <% clauses.forEach(function(clause) { %>
@@ -45,8 +45,7 @@
       <% let prefix = arguments[0].prefix; %>
       <% Object.keys(entries).sort().forEach(function(name) { %>
         <a href="#<%= entries[name].full_name %>">
-          <% let is_active = decodeURIComponent(window.location.hash.replace(/^\#/, '')) == entries[name].full_name; %>
-          <li class="entry <%= is_active ? 'entry--active' : '' %>">
+          <li id="<%= entries[name].full_name %>" class="entry">
             <span class="entry__chevron"></span>
             <%= prefix %><%= name %>
           </li>

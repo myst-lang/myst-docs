@@ -68,7 +68,25 @@ class MystDoc {
       },
     });
 
+    this.set_active_elements(path);
     this.previous_content = content;
+  }
+
+  set_active_elements(path) {
+    this.sidebar_container.querySelectorAll('.--active-element').forEach(function(element) {
+      element.classList.remove('--active-element');
+    });
+
+    let sidebar_element = this.sidebar_container.querySelector(`[id="${path}"]`);
+    let display_element = this.display_container.querySelector(`[id="${path}"]`);
+
+    if(sidebar_element) {
+      sidebar_element.classList.add('--active-element');
+    }
+
+    if(display_element) {
+      display_element.classList.add('--active-element');
+    }
   }
 
 
@@ -109,6 +127,15 @@ class MystDoc {
       return path.split(/(?=\.|\#)/g).slice(0, -1).join('');
     }
   }
+
+  navigate_from_href() {
+    let full_name = decodeURIComponent(window.location.hash.replace(/^\#/, ''));
+    this.navigate_to(full_name);
+    let active_element = this.display_container.querySelector(`[id="${full_name}"] .hash_anchor`);
+    if(active_element) {
+      active_element.scrollIntoView();
+    }
+  };
 };
 
 
@@ -124,24 +151,13 @@ $render = {
 }
 
 
-function navigate_from_href() {
-  let full_name = decodeURIComponent(window.location.hash.replace(/^\#/, ''));
-  $docs.navigate_to(full_name);
-  let active_element = $(`[id="${full_name}"]`);
-  if(active_element) {
-    active_element.scrollIntoView();
-    $('.display-wrapper').scrollTop -= 60;
-  }
-};
-
-
 fetch('myst.json')
   .then(function(response) { return response.json(); })
   .then(function(data) {
     $docs.load(data);
-    navigate_from_href();
+    $docs.navigate_from_href();
   });
 
 
-window.addEventListener("hashchange", navigate_from_href, true);
-window.addEventListener("popstate", navigate_from_href, true);
+window.addEventListener("hashchange", $docs.navigate_from_href.bind($docs), true);
+window.addEventListener("popstate", $docs.navigate_from_href.bind($docs), true);

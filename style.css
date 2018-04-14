@@ -34,8 +34,8 @@
   --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-condensed: 'IBM Plex Sans Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-monospace: 'IBM Plex Mono', monospace, monospace;
-  --line-height: 1.8rem;
-  --line-height-condensed: 1.3rem;
+  --line-height: 1.8em;
+  --line-height-condensed: 1.3em;
 
   --spacing-0u: 4px;
   --spacing-1u: 8px;
@@ -47,6 +47,8 @@
 
   --transition-fast: 0.07s all ease-in;
   --animation-speed: 1.2s;
+
+  --bezier-accel: cubic-bezier(0.61, 0.18, 0.63, 0.64);
 }
 
 html, body {
@@ -63,12 +65,6 @@ body {
   box-sizing: border-box;
 }
 
-
-
-.muted {
-  color: var(--muted-color);
-}
-
 code {
   display: inline-block;
   line-height: var(--line-height-condensed);
@@ -78,11 +74,21 @@ code {
   color: var(--code-color);
 }
 
-
 a {
   color: currentColor;
   text-decoration: none;
 }
+
+
+.muted {
+  color: var(--muted-color);
+}
+
+.hash_anchor {
+  display: inline-block;
+  margin-top: calc(-1 * var(--spacing-8u));
+}
+
 
 
 .content {
@@ -232,7 +238,7 @@ a {
 }
 
 .entry__list .entry:hover .entry__chevron,
-.entry__list .entry--active .entry__chevron {
+.entry__list .entry.--active-element .entry__chevron {
   opacity: 1;
 }
 
@@ -261,9 +267,9 @@ a {
   border-left: 2px solid var(--border-color);
 }
 
-.display__method--active,
-.display__constant--active {
-  animation: var(--animation-speed) ease flash-animation;
+.display__method.--active-element,
+.display__constant.--active-element {
+  animation: var(--animation-speed) var(--bezier-accel) flash-animation;
   animation-duration:;
 }
 
