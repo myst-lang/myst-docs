@@ -75,6 +75,12 @@
       <span class="sidebar-breadcrumbs__name"><%= content.name || 'Kernel' %></span>
     </div>
 
+    <div class="sidebar-search">
+      <input type="text" id="sidebar-search__input" placeholder="search">
+      <div class="sidebar-search__results-overlay">
+      </div>
+    </div>
+
     <div id="index">
       <%= $render.sidebar_section({ section_name: 'Modules', entries: content.submodules }) %>
       <%= $render.sidebar_section({ section_name: 'Types', entries: content.subtypes }) %>

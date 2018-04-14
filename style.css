@@ -323,6 +323,25 @@ a {
   display: block;
 }
 
+#sidebar-search__input {
+  width: 100%;
+  background-color: inherit;
+  border: none;
+  border-bottom: 1px solid var(--invert-border-color);
+  padding: var(--spacing-1u) var(--spacing-4u);
+  color: var(--invert-color);
+  font-size: 1rem;
+  outline: none;
+}
+
+#sidebar-search__input::placeholder {
+  color: var(--invert-muted-color);
+}
+
+.sidebar-search__results-overlay {
+}
+
+
 
 @keyframes flash-animation {
     from { background: var(--light-blue); }

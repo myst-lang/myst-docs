@@ -1,5 +1,27 @@
 const $ = document.querySelector.bind(document);
 
+function fuzzysearch(needle, haystack) {
+  var hlen = haystack.length;
+  var nlen = needle.length;
+  if (nlen > hlen) {
+    return false;
+  }
+  if (nlen === hlen) {
+    return needle === haystack;
+  }
+  outer: for (var i = 0, j = 0; i < nlen; i++) {
+    var nch = needle.charCodeAt(i);
+    while (j < hlen) {
+      if (haystack.charCodeAt(j++) === nch) {
+        continue outer;
+      }
+    }
+    return false;
+  }
+  return true;
+}
+
+
 this.tmpl = function tmpl(element) {
   return new Function("obj",
     "var p=[],print=function(){p.push.apply(p,arguments);};" +
@@ -36,11 +58,13 @@ class MystDoc {
     this.display_generator = tmpl($('#docs_template'));
     this.content = {};
     this.previous_content = null;
+    this.object_index = {};
   }
 
   load(content) {
     this.previous_content = this.content;
     this.content = content;
+    this.create_object_index(this.content);
   }
 
   // Lookup the given path in the doc structure
@@ -56,6 +80,11 @@ class MystDoc {
           parent: this.parent_of_path(content.full_name),
           page_has_changed: page_has_changed
         },
+      });
+
+      let self = this;
+      this.sidebar_container.querySelector('#sidebar-search__input').addEventListener("input", function(evt) {
+        self.search_for(evt.target.value);
       });
     }
 
@@ -136,6 +165,70 @@ class MystDoc {
       active_element.scrollIntoView();
     }
   };
+
+  // `object_index` is a flat list of every entry in the currently-loaded
+  // content. It is created by recursing through all entries in each context
+  // and using the `full_name` key as a unique identifier.
+  create_object_index(content) {
+    if(content.full_name) {
+      this.object_index[content.full_name] = content;
+    }
+
+    let subelements = [];
+    switch(content.kind) {
+      case 'ROOT':
+      case 'MODULE':
+        subelements = subelements.concat(Object.values(content.submodules));
+        subelements = subelements.concat(Object.values(content.subtypes));
+        subelements = subelements.concat(Object.values(content.methods));
+        break;
+      case 'TYPE':
+        subelements = subelements.concat(Object.values(content.submodules));
+        subelements = subelements.concat(Object.values(content.subtypes));
+        subelements = subelements.concat(Object.values(content.initializers));
+        subelements = subelements.concat(Object.values(content.static_methods));
+        subelements = subelements.concat(Object.values(content.instance_methods));
+        break;
+      case 'METHOD':
+      default:
+        break;
+    }
+
+    // Recurse through the subelements
+    subelements.forEach(this.create_object_index.bind(this));
+
+    return this.object_index;
+  }
+
+  // Scan through the object index to find matches for the given query.
+  do_search(query) {
+    let results = {};
+    let self = this;
+    Object.keys(this.object_index).forEach(function(key) {
+      if(fuzzysearch(query, key)) {
+        results[key] = self.object_index[key];
+      }
+    });
+
+    return results;
+  }
+
+  // Search the object index with the given query, then present the results in
+  // the sidebar.
+  search_for(query) {
+    let search_overlay = this.sidebar_container.querySelector('.sidebar-search__results-overlay');
+    search_overlay.innerText = "";
+    // To avoid querying the entire index, the query must be at least 2
+    // characters long.
+    if(query.length < 2) {
+      return false;
+    }
+
+    let results = this.do_search(query);
+    Object.keys(results).forEach(function(result) {
+      search_overlay.innerHTML += "<br/>" + result;
+    });
+  }
 };
 
 
