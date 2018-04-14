@@ -28,7 +28,6 @@
   <script type="text/template" id="method_template">
     <div id="<%= full_name %>" class="display__method">
       <span class="hash_anchor"></span>
-      <% let prefix = arguments[0].prefix || '.'; %>
       <span class="display__method__name"><%= separator %><%= name %></span>
       <% clauses.forEach(function(clause) { %>
         <div class="display__method__clause">
