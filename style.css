@@ -92,7 +92,7 @@ a {
   overflow: hidden;
 }
 
-.content .sidebar {
+.content #sidebar {
   flex: 0 0 300px;
   display: flex;
   flex-direction: column;
@@ -104,7 +104,7 @@ a {
   color: var(--invert-color);
 }
 
-.content .sidebar #sidebar-header {
+.content #sidebar #sidebar-header {
   flex: 0 0 80px;
   padding: var(--spacing-2u) var(--spacing-4u);
   display: flex;
@@ -167,7 +167,7 @@ a {
   border-bottom: 0.36em solid rgba(0,0,0,0);
 }
 
-.content .sidebar #index {
+.content #sidebar #index {
   flex: 1 0 0;
   padding: var(--spacing-4u);
   padding-top: 0;

@@ -28,35 +28,47 @@ class MarkdownRenderer {
   }
 }
 
-
 class MystDoc {
-  constructor(container) {
-    this.container = container;
-    this.generator = tmpl($('#docs_template'));
-    this.render = {
-      constant: tmpl($('#constant_template')),
-      method: tmpl($('#method_template')),
-      sidebar_section: tmpl($('#sidebar_section_template')),
-      sorted_list: tmpl($('#sorted_list_template'))
-    }
+  constructor(sidebar_container, display_container) {
+    this.sidebar_container = sidebar_container;
+    this.display_container = display_container;
+    this.sidebar_generator = tmpl($('#sidebar_template'));
+    this.display_generator = tmpl($('#docs_template'));
     this.content = {};
+    this.previous_content = null;
   }
 
   load(content) {
+    this.previous_content = this.content;
     this.content = content;
   }
 
   // Lookup the given path in the doc structure
   navigate_to(path) {
     let content = this.content_for_path(path);
-    this.container.innerHTML = this.generator({
+    let page_has_changed = content != this.previous_content;
+
+    if(page_has_changed) {
+      this.sidebar_container.innerHTML = this.sidebar_generator({
+        root: this.content,
+        content: content,
+        misc: {
+          parent: this.parent_of_path(content.full_name),
+          page_has_changed: page_has_changed
+        },
+      });
+    }
+
+    this.display_container.innerHTML = this.display_generator({
       root: this.content,
-      render: this.render,
       content: content,
       misc: {
         parent: this.parent_of_path(content.full_name),
+        page_has_changed: page_has_changed
       },
     });
+
+    this.previous_content = content;
   }
 
 
@@ -101,7 +113,16 @@ class MystDoc {
 
 
 
-const $docs = new MystDoc($('#docs'));
+const $docs = new MystDoc($('#sidebar'), $('#display'));
+
+$render = {
+  constant: tmpl($('#constant_template')),
+  method: tmpl($('#method_template')),
+  sidebar_section: tmpl($('#sidebar_section_template')),
+  sidebar: tmpl($('#sidebar_template')),
+  sorted_list: tmpl($('#sorted_list_template'))
+}
+
 
 function navigate_from_href() {
   let full_name = decodeURIComponent(window.location.hash.replace(/^\#/, ''));
@@ -124,4 +145,3 @@ fetch('myst.json')
 
 window.addEventListener("hashchange", navigate_from_href, true);
 window.addEventListener("popstate", navigate_from_href, true);
-
