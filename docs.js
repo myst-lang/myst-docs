@@ -104,7 +104,13 @@ class MystDoc {
 const $docs = new MystDoc($('#docs'));
 
 function navigate_from_href() {
-  $docs.navigate_to(window.location.hash.replace(/^\#/, ''));
+  let full_name = decodeURIComponent(window.location.hash.replace(/^\#/, ''));
+  $docs.navigate_to(full_name);
+  let active_element = $(`[id="${full_name}"]`);
+  if(active_element) {
+    active_element.scrollIntoView();
+    $('.display-wrapper').scrollTop -= 60;
+  }
 };
 
 
@@ -116,6 +122,6 @@ fetch('myst.json')
   });
 
 
-window.addEventListener("hashchange", navigate_from_href, false);
-window.addEventListener("popstate", navigate_from_href, false);
+window.addEventListener("hashchange", navigate_from_href, true);
+window.addEventListener("popstate", navigate_from_href, true);
 
