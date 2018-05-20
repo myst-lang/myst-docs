@@ -7,8 +7,8 @@ The site is automatically generated on-the-fly from the JSON structure emitted u
 
 # Roadmap
 
-- [ ] Improve general navigation.
-- [ ] Enable direct linking to constants and methods.
+- [X] Improve general navigation.
+- [X] Enable direct linking to constants and methods.
 - [ ] Add fuzzy searching for any object.
 - [ ] Support additional pages for summaries/guides/etc.
 - [ ] Allow drag-drop uploads for viewing documentation for a new project.
